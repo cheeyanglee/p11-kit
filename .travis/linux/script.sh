@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker exec $CONTAINER su - user sh -c "cd $SRCDIR && meson $BUILDDIR -Dgtk_doc=true -Dstrict=true -Dprefix=/installdir -Dlibdir=/installdir/lib -Dsysconfdir=/installdir/etc -Dtrust-paths=/installdir/etc/pki/ca-trust-source:/installdir/share/pki/ca-trust-source $MESON_BUILD_OPTS"
+docker exec $CONTAINER su - user sh -c "cd $SRCDIR && meson $BUILDDIR -Dgtk_doc=true -Dman=true -Dstrict=true -Dprefix=/installdir -Dlibdir=/installdir/lib -Dsysconfdir=/installdir/etc -Dtrust-paths=/installdir/etc/pki/ca-trust-source:/installdir/share/pki/ca-trust-source $MESON_BUILD_OPTS"
 if test $? -ne 0; then
   exit 1
 fi
